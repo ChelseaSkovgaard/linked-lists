@@ -15,7 +15,7 @@ $( document ).ready(function() {
   });
 
   $('.bookmark-list').on('click', '.remove-bookmark-button', function(){
-    alert('hello');
+    $(this).parent().remove();
   });
 
 
