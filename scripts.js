@@ -10,18 +10,22 @@ $( document ).ready(function() {
   });
 
   $('.title-field').on('keyup', function() {
-    if ($('.title-field').val() !== '') {
+    if ($('.title-field').val() !== '' && $('.url-field').val() !== '') {
       $('.add-bookmark').prop('disabled', false);
+      $('.error-message').text('');
     } else {
       $('.add-bookmark').prop('disabled', true);
+      $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
     }
   });
 
   $('.url-field').on('keyup', function() {
-    if ($('.url-field').val() !== '') {
+    if ($('.url-field').val() !== '' && $('.title-field').val() !== '') {
       $('.add-bookmark').prop('disabled', false);
+      $('.error-message').text('');
     } else {
       $('.add-bookmark').prop('disabled', true);
+      $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
     }
   });
 
