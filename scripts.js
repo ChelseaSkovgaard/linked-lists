@@ -6,19 +6,41 @@ $( document ).ready(function() {
     var url = $('.url-field').val();
     console.log(title);
     console.log(url);
-    appendToSection();
+    appendToSection(title, url);
   });
 
-  function appendToSection(title, url) {
-    if ($('.title-field').val() === '' || $('.url-field').val() === '') {
-      $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
+  $('.title-field').on('keyup', function() {
+    if ($('.title-field').val() !== '') {
+      $('.add-bookmark').prop('disabled', false);
     } else {
+      $('.add-bookmark').prop('disabled', true);
+    }
+  });
+
+  $('.url-field').on('keyup', function() {
+    if ($('.url-field').val() !== '') {
+      $('.add-bookmark').prop('disabled', false);
+    } else {
+      $('.add-bookmark').prop('disabled', true);
+    }
+  });
+
+  // function checkingInputFields() {
+  //   if ($('.title-field').val() === '' || $('.url-field').val() === '') {
+  //     $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
+  //     $('.add-bookmark').prop('disabled', true);
+  //   } else {
+  //     $('.add-bookmark').prop('disabled', false);
+  //     $('.error-message').text('');
+  //   }
+  // }
+
+
+  function appendToSection(title, url) {
     $('.bookmark-list').append(
       '<div class="container"><li class="title-style">' + title + '</li><li class="link-style">' + url + '</li><button class="read-button">Mark Read</button><button class="remove-bookmark-button">Remove Bookmarks</button></div>');
     $('.error-message').text('');
   }
-}
-
 
   $('.bookmark-list').on('click', '.read-button', function(){
     $(this).parent().toggleClass('read');
