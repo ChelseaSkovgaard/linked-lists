@@ -11,7 +11,7 @@ $( document ).ready(function() {
   });
 
   $('.bookmark-list').on('click', '.read-button', function(){
-    $(this).parent().addClass('read');
+    $(this).parent().toggleClass('read');
   });
 
   $('.bookmark-list').on('click', '.remove-bookmark-button', function(){
