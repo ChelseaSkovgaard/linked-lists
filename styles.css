@@ -54,6 +54,10 @@ button {
   font-weight: bold;
 }
 
+button:focus {
+  outline: none;
+}
+
 .bookmark-count {
   display: flex;
   flex-wrap:wrap;

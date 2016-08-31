@@ -4,11 +4,27 @@ $( document ).ready(function() {
   $('.add-bookmark').on('click', function(){
     var title = $('.title-field').val();
     var url = $('.url-field').val();
+    inputsBlankError();
     appendToSection(title, url);
     changeNumberBookmarks();
-    inputsBlankError();
-
+    clearInputFields();
   });
+
+  $('body').keypress(function(event) {
+    if (event.which == 13) {
+      var title = $('.title-field').val();
+      var url = $('.url-field').val();
+      inputsBlankError();
+      appendToSection(title, url);
+      changeNumberBookmarks();
+      clearInputFields();
+    }
+  });
+
+  function clearInputFields() {
+    $('.title-field').val('');
+    $('.url-field').val('');
+  }
 
   $('.title-field').on('keyup', function() {
     inputsBlanksDisableButton();
@@ -21,6 +37,8 @@ $( document ).ready(function() {
   function inputsBlankError() {
     if ($('.url-field').val() === '' || $('.title-field').val() === '') {
       $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
+    } else {
+      $('.error-message').text('');
     }
   }
 
