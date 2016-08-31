@@ -58,16 +58,19 @@ button {
   display: inline-block;
   width: 15%;
   height: 100%;
-  background-color: #DDDDDD;
   text-align: center;
-  margin: 20px;
-  font-size: 15px;
+  margin: 20px 0;
+  font-size: 10px;
   padding: 10px;
+  border-top: #333333 solid 2px;
+  background-color: grey;
+  color:white;
 }
 
 .bookmark-count p {
   padding-top: 5px;
   font-size: 20px;
+  
 }
 
 .created-bookmarks {
@@ -79,17 +82,18 @@ button {
 
 .title-style {
   color: ;
-  font-size: 30px;
+  font-size: 18px;
   margin-left: 10px;
   text-align: left;
   color: #333333;
 }
 
 .link-style {
-  color: blue;
+  color: #0074D9;
   font-size: 15px;
   margin-left: 20px;
 }
+
 .container {
   border-bottom: 3px solid #333333;
   margin-bottom: 7px;
@@ -101,8 +105,7 @@ button {
 }
 
 .read {
-  background-color: yellow;
-  width: 200px;
+  text-decoration: line-through;
 }
 
 li {
