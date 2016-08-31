@@ -2,6 +2,7 @@ body {
   background-color: white;
   font-family: 'Noto Sans', sans-serif;
 }
+
 header {
   width: 100vw;
   background-image: linear-gradient(45deg, #232526, #414345, #232526);
@@ -20,6 +21,7 @@ h1 {
 h2 {
   padding-bottom: 10px;
 }
+
 .input-fields {
   display: block;
   text-align: center;
@@ -38,6 +40,10 @@ input {
   border-style: none;
   border-bottom: solid black 3px;
   background-color: white;
+}
+
+input:focus {
+  outline: none;
 }
 
 button {
@@ -59,19 +65,18 @@ button {
   display: inline-block;
   width: 15%;
   height: 100%;
+  background-color: grey;
+  font-size: 10px;
+  color:white;
   text-align: center;
   margin: 20px 0;
-  font-size: 10px;
   padding: 10px;
   border-top: #333333 solid 2px;
-  background-color: grey;
-  color:white;
 }
 
 .bookmark-count p {
   padding-top: 5px;
   font-size: 20px;
-
 }
 
 .created-bookmarks {
@@ -81,12 +86,16 @@ button {
   align-items: center;
 }
 
+.container {
+  border-bottom: 3px solid #333333;
+  margin-bottom: 7px;
+}
+
 .title-style {
-  color: ;
   font-size: 18px;
-  margin-left: 10px;
-  text-align: left;
   color: #333333;
+  text-align: left;
+  margin-left: 10px;
 }
 
 .link-style {
@@ -95,9 +104,8 @@ button {
   margin-left: 20px;
 }
 
-.container {
-  border-bottom: 3px solid #333333;
-  margin-bottom: 7px;
+li {
+  list-style: none;
 }
 
 .read-button {
@@ -109,12 +117,9 @@ button {
   text-decoration: line-through;
 }
 
-li {
-  list-style: none;
-}
-
 .clear-bookmarks{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
