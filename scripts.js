@@ -34,7 +34,7 @@ $( document ).ready(function() {
 
   function appendToSection(title, url) {
     $('.bookmark-list').append(
-      '<div class="container"><li class="title-style">' + title + '</li><li class="link-style"><a href="' + url + '" target="_blank">' + url + '</a></li><button class="read-button">Mark Read</button><button class="remove-bookmark-button">Remove Bookmarks</button></div>');
+      '<div class="container"><li class="title-style">' + title + '</li><li class="link-style"><a href="' + url + '" target="_blank">' + url + '</a></li><button class="read-button">Mark Read</button><button class="remove-bookmark-button">Remove Bookmark</button></div>');
   }
 
   $('.bookmark-list').on('click', '.read-button', function(){
