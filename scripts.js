@@ -6,28 +6,31 @@ $( document ).ready(function() {
     var url = $('.url-field').val();
     appendToSection(title, url);
     changeNumberBookmarks();
+    inputsBlankError();
 
   });
 
   $('.title-field').on('keyup', function() {
-    if ($('.title-field').val() !== '' && $('.url-field').val() !== '') {
-      $('.add-bookmark').prop('disabled', false);
-      $('.error-message').text('');
-    } else {
-      $('.add-bookmark').prop('disabled', true);
-      $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
-    }
+    inputsBlanksDisableButton();
   });
 
   $('.url-field').on('keyup', function() {
-    if ($('.url-field').val() !== '' && $('.title-field').val() !== '') {
-      $('.add-bookmark').prop('disabled', false);
-      $('.error-message').text('');
-    } else {
-      $('.add-bookmark').prop('disabled', true);
+    inputsBlanksDisableButton();
+  });
+
+  function inputsBlankError() {
+    if ($('.url-field').val() === '' || $('.title-field').val() === '') {
       $('.error-message').text('Error: One of the fields is empty. Please fill in both fields.');
     }
-  });
+  }
+
+  function inputsBlanksDisableButton() {
+    if ($('.title-field').val() && $('.url-field').val()) {
+      $('.add-bookmark').prop('disabled', false);
+    } else {
+      $('.add-bookmark').prop('disabled', true);
+    }
+  }
 
   function appendToSection(title, url) {
     $('.bookmark-list').append(
