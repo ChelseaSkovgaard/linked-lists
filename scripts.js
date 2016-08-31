@@ -47,6 +47,10 @@ $( document ).ready(function() {
     changeNumberBookmarks();
   });
 
+  $('.clear-read-bookmarks').on('click', function(){
+    $('.read').remove();
+    changeNumberBookmarks();
+  });
 function changeNumberBookmarks() {
   $('.total-bookmarks').text($('.container').length);
   $('.read-bookmarks').text($('.read').length);
