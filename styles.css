@@ -17,3 +17,7 @@ body {
 .read {
   background-color: yellow;
 }
+
+li {
+  list-style: none;
+}
