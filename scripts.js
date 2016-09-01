@@ -1,6 +1,5 @@
 $( document ).ready(function() {
 
-
   $('.add-bookmark').on('click', function(){
     var title = $('.title-field').val();
     var url = $('.url-field').val();
@@ -15,7 +14,6 @@ $( document ).ready(function() {
     if (event.which == 13) {
       var title = $('.title-field').val();
       var url = $('.url-field').val();
-      // if ($('.url-field').val() === '' || $('.title-field').val() === '') { return; }
       if(urlValidation() === false) {return;}
       if(inputsBlankError() === true) {return;}
       appendToSection(title, url);
@@ -24,11 +22,6 @@ $( document ).ready(function() {
     }
   });
 
-  function clearInputFields() {
-    $('.title-field').val('');
-    $('.url-field').val('');
-  }
-
   $('.title-field').on('keyup', function() {
     inputsBlanksDisableButton();
   });
@@ -36,6 +29,26 @@ $( document ).ready(function() {
   $('.url-field').on('keyup', function() {
     inputsBlanksDisableButton();
   });
+
+  $('.bookmark-list').on('click', '.read-button', function(){
+    $(this).parent().toggleClass('read');
+    changeNumberBookmarks();
+  });
+
+  $('.bookmark-list').on('click', '.remove-bookmark-button', function(){
+    $(this).parent().remove();
+    changeNumberBookmarks();
+  });
+
+  $('.clear-read-bookmarks').on('click', function(){
+    $('.read').remove();
+    changeNumberBookmarks();
+  });
+
+  function clearInputFields() {
+    $('.title-field').val('');
+    $('.url-field').val('');
+  }
 
   function inputsBlankError() {
     if ($('.url-field').val() === '' || $('.title-field').val() === '') {
@@ -72,21 +85,6 @@ $( document ).ready(function() {
       '<div class="container"><li class="title-style">' + title + '</li><li class="link-style"><a href="' + url + '" target="_blank">' + url + '</a></li><button class="read-button">Mark Read</button><button class="remove-bookmark-button">Remove Bookmark</button></div>'
     );
   }
-
-  $('.bookmark-list').on('click', '.read-button', function(){
-    $(this).parent().toggleClass('read');
-    changeNumberBookmarks();
-  });
-
-  $('.bookmark-list').on('click', '.remove-bookmark-button', function(){
-    $(this).parent().remove();
-    changeNumberBookmarks();
-  });
-
-  $('.clear-read-bookmarks').on('click', function(){
-    $('.read').remove();
-    changeNumberBookmarks();
-  });
 
   function changeNumberBookmarks() {
     $('.total-bookmarks').text($('.container').length);
