@@ -5,6 +5,7 @@ $( document ).ready(function() {
     var title = $('.title-field').val();
     var url = $('.url-field').val();
     inputsBlankError();
+    if(urlValidation() === false) {return;}
     appendToSection(title, url);
     changeNumberBookmarks();
     clearInputFields();
@@ -15,7 +16,8 @@ $( document ).ready(function() {
       var title = $('.title-field').val();
       var url = $('.url-field').val();
       // if ($('.url-field').val() === '' || $('.title-field').val() === '') { return; }
-      if(inputsBlankError() === true) {return;};
+      if(urlValidation() === false) {return;}
+      if(inputsBlankError() === true) {return;}
       appendToSection(title, url);
       changeNumberBookmarks();
       clearInputFields();
@@ -43,6 +45,19 @@ $( document ).ready(function() {
       $('.error-message').text('');
     }
   }
+
+  function urlValidation() {
+    var urlRegEx = new
+    RegExp(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+
+    if (urlRegEx.test($('.url-field').val())) {
+      return true;
+    } else {
+      $('.error-message').text('Please enter a valid URL.');
+      return false;
+    }
+  }
+
 
   function inputsBlanksDisableButton() {
     if ($('.title-field').val() && $('.url-field').val()) {

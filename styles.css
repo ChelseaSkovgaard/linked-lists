@@ -58,6 +58,12 @@ button:focus {
   outline: none;
 }
 
+button:disabled {
+  font-weight: normal;
+  background: grey;
+  color: white;
+}
+
 .bookmark-count {
   display: flex;
   flex-wrap:wrap;
