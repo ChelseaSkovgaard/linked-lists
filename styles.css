@@ -89,6 +89,13 @@ button:disabled {
   font-size: 20px;
 }
 
+.clear-bookmarks{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0 10px;
+}
+
 .created-bookmarks {
   display: flex;
   flex-wrap: wrap;
@@ -125,11 +132,4 @@ li {
 
 .read {
   text-decoration: line-through;
-}
-
-.clear-bookmarks{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
 }
